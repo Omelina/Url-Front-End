@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UrlService } from './services/url.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+
+  constructor(
+    private urlService:UrlService
+    )
+    {
+    this.urlService.getUsers().subscribe(res =>{
+      console.log(res)
+    })
+  }
 }
