@@ -4,6 +4,9 @@ import {UrlI} from '../modules/url.interface';
 import { Observable } from 'rxjs';
 import { UserI } from '../modules/user.interface';
 import { MessageI } from '../modules/message.interface';
+import { AuthService } from './auth-service.service';
+import { tap } from 'rxjs/operators';
+import {shareReplay } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class UrlService {
   url:string = "http://localhost:3000/";
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient, private auth: AuthService
   ) {
    }
 
@@ -23,7 +26,8 @@ export class UrlService {
 
   login(form:UserI):Observable<MessageI>{
     let direction = this.url + "users/singin";
-    return this.http.post<MessageI>(direction, form);
+    return this.http.post<MessageI>(direction, form).pipe(
+      tap(res => this.auth.setSession(res)))
   }
 
    getUrls():Observable<UrlI[]>{
