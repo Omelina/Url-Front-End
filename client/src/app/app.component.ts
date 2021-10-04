@@ -13,7 +13,10 @@ export class AppComponent {
     private urlService:UrlService
     )
     {
-    this.urlService.getUsers().subscribe(res =>{
+    // this.urlService.getUsers().subscribe(res =>{
+    //   console.log(res)
+    // })
+    this.urlService.getUrls().subscribe(res =>{
       console.log(res)
     })
   }

@@ -14,7 +14,6 @@ export class UrlService {
   constructor(
     private http: HttpClient
   ) {
-    console.log("hola mundo")
    }
 
    getUsers():Observable<UserI[]>{
