@@ -6,7 +6,7 @@ import { UserI } from '../modules/user.interface';
 import { MessageI } from '../modules/message.interface';
 import { AuthService } from './auth-service.service';
 import { tap } from 'rxjs/operators';
-import {shareReplay } from 'rxjs/operators'
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class UrlService {
   url:string = "http://localhost:3000/";
 
   constructor(
-    private http: HttpClient, private auth: AuthService
+    private http: HttpClient, private auth: AuthService, private cookie:CookieService
   ) {
    }
 
@@ -32,6 +32,13 @@ export class UrlService {
 
    getUrls():Observable<UrlI[]>{
     let direction = this.url + "urls/";
-    return this.http.get<UrlI[]>(direction);
+    return this.http.get<UrlI[]>(direction, {withCredentials: true});
+  }
+
+  logout():Observable<MessageI>{
+    this.auth.logout();
+    this.cookie.delete('t');
+    let direction = this.url + "users/logout";
+    return this.http.get<MessageI>(direction);
   }
 }

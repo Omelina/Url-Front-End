@@ -35,26 +35,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                  <tr *ngFor="let url of urls">
+                    <td>{{url.url}}</td>
+                    <td>{{url.shortcode}}</td>
+                    <td>{{url.visits}}</td>
                   </tr>
                 </tbody>
               </table>
         </div>
     </div>
-    <button class="btn btn-primary rounded-circle" type="button"></button>
+    <button class="btn btn-primary rounded-circle" type="button" (click)="onLogout()"></button>
 </body>
 <hr>
 <app-footer></app-footer>

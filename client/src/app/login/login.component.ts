@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserI } from '../modules/user.interface';
 import { UrlService } from '../services/url.service';
 
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
       password : new FormControl('', Validators.required)
     })
     
-  constructor(private api:UrlService) { }
+  constructor(private api:UrlService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit {
   onLogin(form:UserI){
     this.api.login(form).subscribe(data => {
       if(data.type_msg === 'success'){
-        console.log('main');
+        this.router.navigate(['dashboard']);
       }else{
         console.log('try again');
       }
