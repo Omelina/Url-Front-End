@@ -1,0 +1,49 @@
+body {
+    height:100%;
+    min-height:770px;
+  background: rgba(0, 0, 0, 0.76);
+}
+
+.title {
+  color: #fff;
+}
+
+.logo {
+  padding: 2px;
+  /* float: left; */
+}
+
+hr{
+    margin-top: auto;
+    border-top: 5px solid #fff;
+}
+
+.mm{
+    padding-top: 25px;
+}
+
+.table{
+    margin-top: 25px;
+}
+
+.rounded-circle{
+    background-image: url('/assets/logout.png') ;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 150px;
+    right: 150px; 
+}
+
+.center{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Kaushan Script', cursive;
+}
