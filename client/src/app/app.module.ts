@@ -30,7 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule
   ],
   providers: [
-    CookieService
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })
