@@ -24,6 +24,12 @@ export class UrlService {
     return this.http.get<UserI[]>(direction);
   }
 
+  getCode(code:string):Observable<UrlI>{
+    let direction = this.url + code;
+    console.log(direction);
+    return this.http.get<UrlI>(direction, {withCredentials: true});
+  }
+
   login(form:UserI):Observable<MessageI>{
     let direction = this.url + "users/singin";
     return this.http.post<MessageI>(direction, form).pipe(

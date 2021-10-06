@@ -23,7 +23,8 @@ hr{
 }
 
 .table{
-    margin-top: 25px;
+  width: 100%;
+  margin-top: 25px;
 }
 
 .rounded-circle{
@@ -40,6 +41,32 @@ hr{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.over{
+  
+  overflow: auto;
+  max-width: 350px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #222020;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0583F2;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0583F2;
 }
 
 h1,
