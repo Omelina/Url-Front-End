@@ -26,8 +26,12 @@ export class UrlService {
 
   getCode(code:string):Observable<UrlI>{
     let direction = this.url + code;
-    console.log(direction);
     return this.http.get<UrlI>(direction, {withCredentials: true});
+  }
+
+  registerUrl(longUrl:UrlI):Observable<MessageI>{
+    let direction = this.url + "create/";
+    return this.http.post<MessageI>(direction, longUrl, {withCredentials: true});
   }
 
   login(form:UserI):Observable<MessageI>{

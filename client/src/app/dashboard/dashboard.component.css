@@ -36,12 +36,26 @@ hr{
     right: 150px; 
 }
 
+a{
+  color: #fff;
+}
+
+a:hover{
+  color: lightgray;
+}
+
 .center{
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.form-group{
+  display: flex;
+  flex-direction: row;
+}
+
 
 .over{
   
